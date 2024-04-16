@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal portfolio website -Easy Tutorials</title>
+    <script src="https://fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        font-family:'poppins',sans-serif;
+        box-sizing: border-box;
+        }
+
+        body {
+            background: #1f705c;
+            color: #fff;
+        }
+
+        #header {
+            width: 100%;
+            height: 100vh;
+            background-image: url();
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            padding: 10px 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 100%;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 1s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-top: 5%;
+            font-size: 30px;
+        }
+
+        .header-text h1 {
+            font-size: 60px;
+            margin-top: 20px;
+        }
+
+        .header-text h1 span {
+            color: #ff004f;
+        }
+
+        #About {
+            padding: 80px 0;
+            color: #ababab;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .About-col-1 {
+            flex-basis: 25%;
+        }
+
+        .About-col-1 img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .About-col-2 {
+            flex-basis: 60%;
+        }
+
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40 px;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .tab-contents ul li span {
+            color: #b54769;
+            font-size: 14px;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        #services {
+
+            padding: 30px 0;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .services-list div {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-right: 10px;
+        }
+
+        .services-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        .services-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .services-list div a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .services-list div:hover {
+            background: #ff004f;
+            transform: translate(-10px);
+        }
+
+        #portfolio {
+            padding: 50px 0;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 30%;
+            border-radius: 15px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .layer {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0, 6)), #ff004f;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .layer h3 {
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer a {
+            margin-top: 20px;
+            color: #ff004f;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 60px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            background: #ff004f;
+        }
+
+        .contact-left {
+            flex-basis: 35%;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-left p {
+            margin-top: 30px;
+        }
+
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .btn.btn2 {
+            display: inline-block;
+            background: #ff004f;
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        form .btn2 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: right;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https:kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="wb.jpeg" class="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Introduction</a></li>
+                    <li><a href="#">services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Web Designer</p>
+                <h1>Hi,I'm <span> AMAN AWASTHI</span><br>from India</h1>
+                <span id="luck"></span>
+            </div>
+        </div>
+    </div>
+    <!------------About------------->
+    <div id="About">
+        <div class="container">
+            <div class="row">
+                <div class="About-col-1">
+                    <img src="wb.jpg" width="20px" height="200px">
+                </div>
+                <div class="About-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>My Name is AMAN AWASTHI.I am from kanpur.I did my schooling from kanpur.Currently I am persuing
+                        BCA from Allenhouse business school...kanpur.</p><br>
+                    <p>I am ungraduate.</p>
+                    <p>Martial status-Single</p>
+                    <p>Currently living in kanpur</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI?UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>TYPING MASTER</span><br>HINDI,ENGLISH</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2023-2024</span><br>Web Development</li>
+                            <li><span>2024</span><br>Front End Developer</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2019</span>10th pass from UMARAI DEVI INTER COLLAGE <MARK>YASHODA
+                                    NAGAR</MARK><B>(KANPUR)</B> <br></li>
+                            <li><span>2020</span><br>12th pass from UMRAI DEVI INTER COLLAGE </li>
+                            <li><span>2024</span><br><MARK>Pursuing BCA from ALLEN HOUSE BUSINESS SCHOOL</MARK></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------Services------------->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services list">
+                <div>
+                    <i class="fa-thin fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Web Development also known as website development ,refers to the tasks associated with
+                        creating,building and maintaining websites and web applications that run on a browser.It in
+                        ludes web design,web programming, and database management.</p>
+                    <a
+                        href="Learning Web Design _ A Beginner’s Guide to HTML, CSS, JavaScript, and Web Graphics ( PDFDrive ).pdf">Learn
+                        More</a>
+                </div>
+            </div>
+            <div>
+                <i class="fa-thin fa-crop"></i>
+                <h2>GUI Design</h2>
+                <p>Graphical user interface uses graphics such as icons and buttons to allow user to interact with
+                    digital products such as computers .Websites and apps also uses GUI design </p>
+                <a href="force/development.jpg">Learn More</a>
+            </div>
+            <div>
+                <i class="fa-sharp fa-thin fa-crop-simple"></i>
+                <h2>App Design</h2>
+                <p>Application development or app development is the process of planning,designing,creating,testing and
+                    deploying a software application to perform various business operations.For this Strong coding and
+                    development skills in a variety of programming languages are required.</p>
+                <a href=>Learn More</a>
+            </div>
+        </div>
+    </div>
+    <!------------Portfolio------------->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work">
+                <img src="logo2 .jpg" width="100px" height="300px">
+                <div class="layer">
+                    <h3>Music App</h3>
+                    <p>The app connects you to the talented people around the world.</p>
+                    <p>Download it from play store.</p>
+                    <a href=>click here</a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="socialmediaapp.jpg" width="100px" height="300px">
+                <div class="layer">
+                    <h3>Social Media App</h3>
+                    <p>The app connects you to the talented people around the world.</p>
+                    <p>Download it from play store.</p>
+                    <a href=>Click here</a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="shoppingapp.jpg" width="100px" height="300px">
+                <div class="layer">
+                    <h3>Online shopping App</h3>
+                    <p>The app connects you to the talented people around the world.</p>
+                    <p>Download it from play store.</p>
+                    <a href=>Click here</a>
+                </div>
+            </div>
+        </div>
+        <a href="" class="btn">See More</a>
+    </div>
+    <!------------Contact------------->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p>Contact@example.com</p>
+                    <p>0123456789</p>
+                    <div class="social-icons">
+                        <a href="#"><i>Contact</i></a><br><br>
+                        <a href="#"><i>Connect</i></a>
+                    </div>
+                    <a href="chap 3 yoga ( term 2 ).pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="coltact-right">
+                    <form>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right" style="text-align: center;">
+            <p>Copyright @aman.Made by AMAN AWASTHI</p>
+            <a id="tribute-link" href="#">
+                <b>protfola</b>{
+                <small>Developed by @<a href="#">
+                        AMAN AWASTHI.</a></a>
+            </small>}
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#luck', {
+            strings: ['web devopler', '&', 'typing master', 'coder', 'business man',],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>
